@@ -1,0 +1,32 @@
+<div class="max-w-3xl mx-auto p-6 space-y-4">
+  <div class="flex items-center gap-3">
+    <input
+      [(ngModel)]="title"
+      placeholder="New task title"
+      class="border rounded px-3 py-2 flex-1"
+    />
+    <button class="bg-black text-white rounded px-4 py-2" (click)="create()">
+      Add
+    </button>
+  </div>
+
+  <div class="flex gap-3">
+    <input
+      [(ngModel)]="text"
+      (ngModelChange)="onTextChange($event)"
+      placeholder="Search..."
+      class="border rounded px-3 py-2 flex-1"
+    />
+
+    <select
+      [(ngModel)]="status"
+      (ngModelChange)="onStatusChange($event)"
+      class="border rounded px-3 py-2"
+    >
+      <option [ngValue]="undefined">All</option>
+      <option [ngValue]="'TODO'">TODO</option>
+      <option [ngValue]="'IN_PROGRESS'">IN_PROGRESS</option>
+      <option [ngValue]="'DONE'">DONE</option>
+    </select>
+  </div>
+</div>

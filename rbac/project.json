@@ -1,0 +1,26 @@
+{
+  "name": "rbac",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "rbac/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/rbac",
+        "main": "rbac/src/index.ts",
+        "tsConfig": "rbac/tsconfig.lib.json",
+        "assets": ["rbac/*.md"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "rbac/jest.config.ts"
+      }
+    }
+  }
+}

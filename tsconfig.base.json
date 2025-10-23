@@ -1,0 +1,26 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@turbovets-tasks/auth": ["auth/src/index.ts"],
+      "@turbovets-tasks/rbac": ["rbac/src/index.ts"],
+      "@turbovets-tasks/shared-models": ["shared-models/src/index.ts"],
+      "@turbovets/rbac": ["rbac/src/index.ts"],
+      "@turbovets/auth": ["auth/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
