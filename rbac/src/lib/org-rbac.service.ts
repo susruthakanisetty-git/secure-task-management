@@ -12,7 +12,6 @@ export class OrgRbacService {
    * If targetOrgId is undefined, we fallback to the user's first membership org.
    */
   async resolveRole(userId: string, targetOrgId?: string): Promise<OrgRole | null> {
-    // 1) Find first membership (used also as fallback org)
     const first = await this.prisma.membership.findFirst({
       where: { userId },
       select: { role: true, orgId: true, org: { select: { parentId: true } } },
@@ -21,10 +20,8 @@ export class OrgRbacService {
 
     if (!first && !targetOrgId) return null; // user has no orgs and none provided
 
-    // 2) Choose the org we’ll start with
     const startOrgId = targetOrgId ?? first!.orgId;
 
-    // 3) Walk up org chain to root, return the role from the first membership we find
     let current = await this.prisma.organization.findUnique({
       where: { id: startOrgId },
       select: { id: true, parentId: true },

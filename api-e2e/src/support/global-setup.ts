@@ -11,6 +11,5 @@ module.exports = async function () {
   const port = process.env.PORT ? Number(process.env.PORT) : 3000;
   await waitForPortOpen(port, { host });
 
-  // Hint: Use `globalThis` to pass variables to global teardown.
   globalThis.__TEARDOWN_MESSAGE__ = '\nTearing down...\n';
 };

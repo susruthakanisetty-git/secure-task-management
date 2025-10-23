@@ -1,8 +1,4 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+// This is your Prisma schema file
 
 generator client {
   provider = "prisma-client-js"
@@ -14,44 +10,6 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
-
-// model User {
-//   id        String   @id @default(cuid())
-//   email     String   @unique
-//   name      String?
-//   password  String // hashed
-//   role      Role     @default(MEMBER)
-//   tasks     Task[]   @relation("AssigneeTasks")
-//   createdAt DateTime @default(now())
-//   updatedAt DateTime @updatedAt
-// }
-
-// enum Role {
-//   ADMIN
-//   MANAGER
-//   MEMBER
-// }
-
-// model Task {
-//   id          String     @id @default(cuid())
-//   title       String
-//   description String?
-//   status      TaskStatus @default(TODO)
-//   assignee    User?      @relation("AssigneeTasks", fields: [assigneeId], references: [id])
-//   assigneeId  String?
-//   createdBy   String
-//   createdAt   DateTime   @default(now())
-//   updatedAt   DateTime   @updatedAt
-// }
-
-// enum TaskStatus {
-//   TODO
-//   IN_PROGRESS
-//   DONE
-// }
-
-
-// --- keep your existing generator/datasource blocks ---
 
 enum OrgRole {
   OWNER
@@ -115,15 +73,15 @@ model Task {
   category     String?
   order        Int          @default(0)
 
-  // ↔︎ Organization (name the relation, and reference it from Organization.tasks)
+  // Organization (name the relation, and reference it from Organization.tasks)
   orgId        String
   org          Organization @relation("OrgTasks", fields: [orgId], references: [id])
 
-  // ↔︎ Creator
+  // Creator
   createdById  String
   createdBy    User         @relation("CreatedTasks", fields: [createdById], references: [id])
 
-  // ↔︎ Assignee (optional)
+  //  Assignee (optional)
   assigneeId   String?
   assignee     User?        @relation("AssignedTasks", fields: [assigneeId], references: [id])
 

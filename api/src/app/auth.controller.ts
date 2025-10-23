@@ -1,6 +1,6 @@
 import { Controller, Post, Body, UnauthorizedException, BadRequestException, ForbiddenException, UseGuards } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
-import * as bcrypt from 'bcryptjs'; // use bcryptjs for Windows compatibility
+import * as bcrypt from 'bcryptjs'; 
 import { JwtService } from '@nestjs/jwt';
 import type { SignOptions } from 'jsonwebtoken';
 

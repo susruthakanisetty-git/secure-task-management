@@ -37,7 +37,7 @@ export class LoginComponent {
         email: this.email, password: this.password, orgId: this.orgId || null
       }).toPromise();
       this.auth.setAuth(res!.access_token, res!.orgId ?? null);
-      location.href = '/'; // navigate to home
+      location.href = '/'; 
     } catch (e: any) {
       this.err = e?.error?.message || 'Login failed';
     }

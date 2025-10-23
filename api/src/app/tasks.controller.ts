@@ -1,4 +1,3 @@
-// api/src/app/tasks.controller.ts (example)
 import { Controller, Get, Post, Body, UseGuards, BadRequestException } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
 import { JwtAuthGuard } from '@turbovets/auth'; // your UserCtx decorator

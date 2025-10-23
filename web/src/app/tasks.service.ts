@@ -29,7 +29,7 @@ export class TasksService {
 
   async load() {
   const result = await this.http.get<Task[]>(`${this.base}/tasks`).toPromise();
-  this.tasks.set(result ?? []);  // fallback to empty array
+  this.tasks.set(result ?? []);  
 }
   async create(input: Partial<Task>) {
     const t = await this.http.post<Task>(`${this.base}/tasks`, input).toPromise();
