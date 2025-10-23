@@ -235,7 +235,7 @@ Susrutha Kanisetty.
 
 Master’s in Computer Science — Stony Brook University.
 
-Email :  susrutha.kanisetty@example.com
+Email :  susrutha.kanisetty@stonybrook.edu
 
 Git hub :  [github.com/susrutha-kanisetty](https://github.com/susruthakanisetty-git)
 
